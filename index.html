@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Whatsapp msg</title>
+    <title>WhatsApp Message</title>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <!-- Bootstrap CSS v5.2.1 -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -17,7 +16,6 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
     <header>
       <!-- place navbar here -->
@@ -25,25 +23,42 @@
     <main>
       <div class="container-fluid text-center p-5">
         <h1>Send a WhatsApp Message</h1>
-        <button class="btn btn-success">
-          <a
-            style="text-decoration: none"
-            href="https://wa.me/8825629493?text=Hello%20World!"
-            target="_blank"
-            class="text-white"
-            >Send Message</a
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label"
+            >Phone Number (in international format):</label
           >
+          <input
+            type="text"
+            id="phoneNumber"
+            class="form-control"
+            placeholder="Enter phone number"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="message" class="form-label">Message:</label>
+          <textarea
+            id="message"
+            class="form-control"
+            rows="3"
+            placeholder="Enter your message"
+          ></textarea>
+        </div>
+        <button class="btn btn-success" id="sendMessageButton">
+          Send Message
         </button>
       </div>
 
       <script>
-        // JavaScript to dynamically generate the URL can be used if needed
-        const phoneNumber = "8825629493";
-        const message = `ele hari rama ena panra `;
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
-          message
-        )}`;
-        document.querySelector("a").href = whatsappUrl;
+        document
+          .getElementById("sendMessageButton")
+          .addEventListener("click", function () {
+            const phoneNumber = document.getElementById("phoneNumber").value;
+            const message = document.getElementById("message").value;
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+              message
+            )}`;
+            window.open(whatsappUrl, "_blank");
+          });
       </script>
     </main>
     <footer>
@@ -55,7 +70,6 @@
       integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
       crossorigin="anonymous"
     ></script>
-
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
       integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
